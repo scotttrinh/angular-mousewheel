@@ -10,13 +10,11 @@ angular.module('monospaced.mousewheel', [])
       restrict: 'A, C',
         link: function(scope, element, attr) {
         var expr = $parse(attr['msdWheel']),
-            fn = function(event, delta, deltaX, deltaY){
+            fn = function(event, delta){
               scope.$apply(function(){
                 expr(scope, {
                   $event: event,
-                  $delta: delta,
-                  $deltaX: deltaX,
-                  $deltaY: deltaY
+                  $delta: delta
                 });
               });
             },
